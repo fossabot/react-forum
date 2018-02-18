@@ -1,12 +1,10 @@
 const serverless = require('serverless-http');
 const bodyParser = require('body-parser');
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
 const AWS = require('aws-sdk');
 
 const USERS_TABLE = process.env.USERS_TABLE;
-const dynamoDb = new AWS.DynamoDB.DocumentClient();
-
 
 const IS_OFFLINE = process.env.IS_OFFLINE;
 let dynamoDb;
