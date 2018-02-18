@@ -1,8 +1,8 @@
-service: my-express-application
+service: react-forum
 
 plugins:
   - serverless-dynamodb-local
-  - serverless-offline
+  - serverless-offline #serverless-offline needs to be last in the list
 
 custom:
   tableName: 'users-table-${self:provider.stage}'
@@ -31,7 +31,7 @@ provider:
 
 functions:
   app:
-    handler: index.handler
+    handler: server.handler
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
