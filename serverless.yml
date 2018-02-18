@@ -5,7 +5,7 @@ plugins:
   - serverless-offline #serverless-offline needs to be last in the list
 
 custom:
-  tableName: 'users-table-${self:provider.stage}'
+  tableName: 'users-table'
   dynamodb:
     start:
       migrate: true
@@ -13,7 +13,6 @@ custom:
 provider:
   name: aws
   runtime: nodejs6.10
-  stage: dev
   region: us-east-1
   iamRoleStatements:
     - Effect: Allow
