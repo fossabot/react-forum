@@ -2,6 +2,7 @@ const serverless = require('serverless-http');
 const bodyParser = require('body-parser');
 const express = require('express')
 const app = express()
+const path = require('path');
 const AWS = require('aws-sdk');
 
 const USERS_TABLE = process.env.USERS_TABLE;
@@ -21,7 +22,7 @@ if (IS_OFFLINE === 'true') {
 app.use(bodyParser.json({ strict: false }));
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.sendFile(path.resolve(__dirname + '/dist' + '/index.html'));
 });
 
 app.get('/users/:userId', (req, res) => {
