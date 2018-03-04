@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import TextField from 'material-ui/TextField';
+import Button from 'material-ui/Button';
+import Icon from 'material-ui/Icon';
 
 class NewTopic extends Component {
   constructor() {
@@ -23,22 +26,27 @@ class NewTopic extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
+        <TextField
           onChange={this.handleChange}
           value={this.state.title}
           placeholder="Title"
           name="title"
+          margin="normal"
         />
-        <textarea
+        <TextField
           name="message"
           id="message"
+          multiline
+          rows="4"
+          margin="normal"
+          placeholder="message"
           onChange={this.handleChange}
           value={this.state.message}
-          cols="30"
-          rows="10"
         />
-        <button type="submit" onClick={this.handleSubmit}>Submit</button>
+        <Button type="submit" variant="raised" color="primary" onClick={this.handleSubmit}>
+          Submit
+          <Icon>send</Icon>
+        </Button>
       </form>
     );
   }
